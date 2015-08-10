@@ -375,7 +375,7 @@
 * Arduino Mega pin assignment
 *
 ****************************************************************************************/
-#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67
+#if MOTHERBOARD == 3 || MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 37 //BLD
 #define KNOWN_BOARD 1
 
 //////////////////FIX THIS//////////////
@@ -391,7 +391,7 @@
 // #define RAMPS_V_1_0
 
 
-#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67
+#if MOTHERBOARD == 33 || MOTHERBOARD == 34 || MOTHERBOARD == 35 || MOTHERBOARD == 77 || MOTHERBOARD == 67 || MOTHERBOARD == 37 //BLD
 
   #define LARGE_FLASH true
   
@@ -477,11 +477,16 @@
     #define LED_PIN            13
   #endif
 
-  #if MOTHERBOARD == 33 || MOTHERBOARD == 35 || MOTHERBOARD == 67
+  #if MOTHERBOARD == 33 || MOTHERBOARD == 35 || MOTHERBOARD == 67 || MOTHERBOARD == 37 //BLD
     #define FAN_PIN            9 // (Sprinter config)
   #else
     #define FAN_PIN            4 // IO pin. Buffer needed
   #endif
+  
+  #if MOTHERBOARD == 37  //BLD
+	#define Y_MIN_PIN	-1  //BLD No y min for printrbot simple metal.  Y min defined as front left corner. Microswitch at ymax
+	#define Y_MAX_PIN	14  //BLD
+  #endif  //BLD
 
   #if MOTHERBOARD == 77
     #define FAN_PIN            8 
@@ -505,7 +510,7 @@
     #define HEATER_0_PIN       10   // EXTRUDER 1
   #endif
 
-  #if MOTHERBOARD == 33 || MOTHERBOARD == 67
+  #if MOTHERBOARD == 33 || MOTHERBOARD == 67 || MOTHERBOARD == 37 //BLD
     #define HEATER_1_PIN       -1
   #else
     #define HEATER_1_PIN       9    // EXTRUDER 2 (FAN On Sprinter)
